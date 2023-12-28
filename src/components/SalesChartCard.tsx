@@ -1,4 +1,3 @@
-import { memo } from "react";
 import { ProductSale, SeriesData } from "../types";
 import SeriesChart from "./SeriesChart";
 
@@ -8,7 +7,7 @@ interface SalesChartCardProps {
   sales: ProductSale[];
 }
 
-export default memo(function SalesChartCard({
+export default function SalesChartCard({
   chartTitle,
   chartSubtitle,
   sales,
@@ -58,4 +57,4 @@ export default memo(function SalesChartCard({
       />
     </div>
   );
-});
+}

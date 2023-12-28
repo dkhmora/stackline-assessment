@@ -1,7 +1,6 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { SeriesData } from "../types";
-import { memo } from "react";
 
 interface SeriesChartProps {
   series: SeriesData[];
@@ -13,7 +12,7 @@ interface SeriesChartProps {
   legend?: Highcharts.LegendOptions;
 }
 
-export default memo(function SeriesChart({
+export default function SeriesChart({
   series,
   title,
   subtitle,
@@ -86,4 +85,4 @@ export default memo(function SeriesChart({
   };
 
   return <HighchartsReact highcharts={Highcharts} options={options} />;
-});
+}

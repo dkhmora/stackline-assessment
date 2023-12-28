@@ -9,9 +9,8 @@ import {
   UnfoldMore as UnfoldMoreIcon,
 } from "@mui/icons-material";
 import { SvgIconOwnProps } from "@mui/material";
-import { memo } from "react";
 
-export default memo(function DataTable({
+export default function DataTable({
   columns,
   data,
 }: {
@@ -40,4 +39,4 @@ export default memo(function DataTable({
   });
 
   return <MaterialReactTable table={table} />;
-});
+}
