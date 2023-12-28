@@ -1,6 +1,7 @@
 import "./App.css";
 import stacklineLogo from "./assets/stackline_logo.svg";
 import ProductDetailsCard from "./components/ProductDetailsCard";
+import SalesChartCard from "./components/SalesChartCard";
 import SalesTableCard from "./components/SalesTableCard";
 import useFetchProducts from "./hooks/useFetchProducts";
 
@@ -27,9 +28,9 @@ function App() {
         </section>
 
         <section className="flex flex-col w-4/5 space-y-16 rounded">
-          <div className="h-full w-full shadow-md bg-white">
-            <h1 className="text-3xl font-bold underline">Chart</h1>
-          </div>
+          {!loading && !error ? (
+            <SalesChartCard sales={firstProduct.sales} />
+          ) : null}
 
           {!loading && !error ? (
             <SalesTableCard sales={firstProduct.sales} />
