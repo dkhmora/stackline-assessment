@@ -15,18 +15,22 @@ export default function ProductDetailsCard({
 }: ProductDetailsCardProps) {
   return (
     <div className="flex flex-1 flex-col items-center shadow-md bg-white rounded overflow-hidden">
-      <div className="flex flex-col items-center p-6">
+      <div className="flex flex-col items-center p-6 border-b">
         <img
           src={image}
           alt={`${title}-product-image`}
           className="min-w-24 max-w-[60%] h-auto"
         />
 
-        <p className="text-2xl font-bold">{title}</p>
-        <p className="text-xl">{subtitle}</p>
+        <div className="px-6 mt-5">
+          <p className="text-2xl font-bold py-2 text-gray-700">{title}</p>
+          <p className="text-lg font-light tracking-wide text-gray-400">
+            {subtitle}
+          </p>
+        </div>
       </div>
 
-      <div className="flex flex-wrap w-full p-6 justify-between">
+      <div className="flex flex-wrap w-full px-6 py-3 justify-between border-b">
         {tags
           ? tags.map((tagText, index) => (
               <Tag text={tagText} key={`${tagText}${index}`} />
