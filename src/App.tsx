@@ -10,13 +10,13 @@ function App() {
   const firstProduct = products[0];
 
   return (
-    <div className="flex flex-col w-screen h-screen">
+    <div className="flex flex-1 flex-col w-screen">
       <header className="flex h-20 w-full bg-[#052849] shadow-lg">
         <img src={stacklineLogo} alt="logo" className="h-full p-6" />
       </header>
 
-      <main className="flex h-screen space-x-5 px-5 py-16">
-        <section className="flex w-1/5">
+      <main className="flex space-x-5 px-5 py-16">
+        <section className="flex flex-grow w-1/5">
           {!loading && !error ? (
             <ProductDetailsCard
               image={firstProduct.image}
