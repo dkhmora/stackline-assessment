@@ -5,13 +5,16 @@ import {
   fetchProductsSuccess,
   fetchProductsRequest,
 } from "../redux/actions/productActions";
+import { RootState, ProductsState } from "../types";
 import { useSelector } from "react-redux";
 
 const STACKLINE_SAMPLE_PRODUCTS_DATA_PATH =
   "/stackline_frontend_assessment_data_2021.json";
 
 const useFetchProducts = () => {
-  const store = useSelector((state) => state);
+  const { loading, products, error }: ProductsState = useSelector(
+    (state: RootState) => state.data
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,6 +27,7 @@ const useFetchProducts = () => {
           throw new Error("HTTP error " + response.status);
         }
         const data = await response.json();
+        console.log(data);
         dispatch(fetchProductsSuccess(data));
       } catch (error) {
         console.error(error);
@@ -32,9 +36,11 @@ const useFetchProducts = () => {
     };
 
     fetchData();
-
-    console.log("Store: ", store);
   }, [dispatch]);
+
+  console.log(loading, products, error);
+
+  return { loading, products, error };
 };
 
 export default useFetchProducts;

@@ -1,9 +1,11 @@
 import "./App.css";
 import stacklineLogo from "./assets/stackline_logo.svg";
+import ProductDetailsCard from "./components/ProductDetailsCard";
 import useFetchProducts from "./hooks/useFetchProducts";
 
 function App() {
-  useFetchProducts();
+  const { loading, products, error } = useFetchProducts();
+  const firstProduct = products[0];
 
   return (
     <div className="flex flex-col w-screen h-screen">
@@ -13,9 +15,14 @@ function App() {
 
       <main className="flex h-screen space-x-5 px-5 py-16">
         <section className="flex w-1/5">
-          <div className="h-full w-full shadow-md bg-white rounded">
-            <h1 className="text-3xl font-bold underline">Product Details</h1>
-          </div>
+          {!loading && !error ? (
+            <ProductDetailsCard
+              image={firstProduct.image}
+              title={firstProduct.title}
+              subtitle={firstProduct.subtitle}
+              tags={firstProduct.tags}
+            />
+          ) : null}
         </section>
 
         <section className="flex flex-col w-4/5 space-y-16 rounded">

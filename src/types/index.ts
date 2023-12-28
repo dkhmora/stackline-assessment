@@ -1,7 +1,7 @@
 export interface Product {
   id: string;
   title: string;
-  image: URL;
+  image: string;
   subtitle: string;
   brand: string;
   reviews: ProductReview[];
@@ -27,8 +27,12 @@ export interface ProductSale {
 
 export interface ProductsState {
   loading: boolean;
-  users: Product[];
-  error: Error;
+  products: Product[];
+  error: string;
+}
+
+export interface RootState {
+  data: ProductsState;
 }
 
 export type Retailer = "Amazon" | "Best Buy" | "Walmart";

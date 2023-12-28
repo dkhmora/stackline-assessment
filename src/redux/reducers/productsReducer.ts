@@ -3,9 +3,14 @@ import {
   FETCH_PRODUCTS_REQUEST,
   FETCH_PRODUCTS_SUCCESS,
   ProductActionTypes,
+  ProductsState,
 } from "../../types";
 
-const initialState = { loading: false, users: [], error: "" };
+const initialState: ProductsState = {
+  loading: true,
+  products: [],
+  error: "",
+};
 
 const productsReducer = (state = initialState, action: ProductActionTypes) => {
   switch (action.type) {
