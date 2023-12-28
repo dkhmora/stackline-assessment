@@ -1,6 +1,7 @@
 import "./App.css";
 import stacklineLogo from "./assets/stackline_logo.svg";
 import ProductDetailsCard from "./components/ProductDetailsCard";
+import SalesTableCard from "./components/SalesTableCard";
 import useFetchProducts from "./hooks/useFetchProducts";
 
 function App() {
@@ -30,9 +31,9 @@ function App() {
             <h1 className="text-3xl font-bold underline">Chart</h1>
           </div>
 
-          <div className="h-full w-full shadow-md bg-white rounded">
-            <h1 className="text-3xl font-bold underline">Sales Data</h1>
-          </div>
+          {!loading && !error ? (
+            <SalesTableCard sales={firstProduct.sales} />
+          ) : null}
         </section>
       </main>
     </div>
