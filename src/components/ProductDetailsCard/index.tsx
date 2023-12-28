@@ -1,3 +1,4 @@
+import { memo } from "react";
 import Tag from "./Tag";
 
 type ProductDetailsCardProps = {
@@ -7,7 +8,7 @@ type ProductDetailsCardProps = {
   tags?: string[];
 };
 
-export default function ProductDetailsCard({
+export default memo(function ProductDetailsCard({
   image,
   title,
   subtitle,
@@ -39,4 +40,4 @@ export default function ProductDetailsCard({
       </div>
     </div>
   );
-}
+});
