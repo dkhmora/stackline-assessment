@@ -4,6 +4,11 @@ import {
   type MRT_ColumnDef,
 } from "material-react-table";
 import { ProductSale } from "../types";
+import {
+  KeyboardArrowDown as KeyboardArrowDownIcon,
+  UnfoldMore as UnfoldMoreIcon,
+} from "@mui/icons-material";
+import { SvgIconOwnProps } from "@mui/material";
 
 export default function DataTable({
   columns,
@@ -14,7 +19,23 @@ export default function DataTable({
 }) {
   const table = useMaterialReactTable({
     columns,
-    data, //data must be memoized or stable (useState, useMemo, defined outside of this component, etc.)
+    data,
+    muiTablePaperProps: {
+      elevation: 0,
+    },
+    icons: {
+      ArrowDownwardIcon: (props: SvgIconOwnProps) => (
+        <KeyboardArrowDownIcon {...props} />
+      ),
+      SyncAltIcon: (props: SvgIconOwnProps) => (
+        <UnfoldMoreIcon
+          {...props}
+          style={{
+            transform: "scaleX(0.9) translateX(-1px)",
+          }}
+        />
+      ),
+    },
   });
 
   return <MaterialReactTable table={table} />;

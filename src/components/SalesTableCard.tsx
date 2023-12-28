@@ -1,13 +1,13 @@
 import { useMemo } from "react";
 import { type MRT_ColumnDef } from "material-react-table";
 import { ProductSale } from "../types";
-import Table from "./DataTable";
+import DataTable from "./DataTable";
 
 export default function SalesTableCard({ sales }: { sales: ProductSale[] }) {
   const columns = useMemo<MRT_ColumnDef<ProductSale>[]>(
     () => [
       {
-        accessorKey: "weekEnding", //access nested data with dot notation
+        accessorKey: "weekEnding",
         header: "Week Ending",
         size: 150,
       },
@@ -17,7 +17,7 @@ export default function SalesTableCard({ sales }: { sales: ProductSale[] }) {
         size: 150,
       },
       {
-        accessorKey: "wholesaleSales", //normal accessorKey
+        accessorKey: "wholesaleSales",
         header: "Wholesale Sales",
         size: 200,
       },
@@ -28,7 +28,7 @@ export default function SalesTableCard({ sales }: { sales: ProductSale[] }) {
       },
       {
         accessorKey: "retailerMargin",
-        header: "Rretailer Margin",
+        header: "Retailer Margin",
         size: 150,
       },
     ],
@@ -37,7 +37,7 @@ export default function SalesTableCard({ sales }: { sales: ProductSale[] }) {
 
   return (
     <div className="h-full w-full shadow-md bg-white rounded">
-      <Table columns={columns} data={sales} />
+      <DataTable columns={columns} data={sales} />
     </div>
   );
 }
