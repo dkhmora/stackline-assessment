@@ -23,10 +23,10 @@ export default function ProductDetailsCard({
         />
 
         <div className="px-6 mt-5">
-          <p className="text-2xl font-bold py-2 text-gray-700">{title}</p>
-          <p className="text-lg font-light tracking-wide text-gray-400">
+          <h1 className="text-2xl font-bold py-2 text-gray-700">{title}</h1>
+          <h2 className="text-lg font-light tracking-wide text-gray-400">
             {subtitle}
-          </p>
+          </h2>
         </div>
       </div>
 

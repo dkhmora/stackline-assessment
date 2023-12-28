@@ -44,7 +44,11 @@ export default function SalesChartCard({
   );
 
   return (
-    <div className="h-full w-full shadow-md bg-white">
+    <div className="h-full w-full shadow-md bg-white py-4 px-8">
+      <h2 className="text-2xl font-light py-2 text-gray-700 text-left mb-6">
+        Retail Sales
+      </h2>
+
       <SeriesChart
         series={series}
         title={{ text: chartTitle }}
