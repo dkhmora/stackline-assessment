@@ -1,57 +1,39 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import { ProductSale } from "../types";
+import { SeriesData } from "../types";
 
-type SeriesData = {
-  name: "Wholesale Data" | "Retail Data";
-  color: string;
-  type: string;
-  data: [number, number][];
-};
+interface SeriesChartProps {
+  series: SeriesData[];
+  title?: Highcharts.TitleOptions;
+  subtitle?: Highcharts.SubtitleOptions;
+  yAxis?: Highcharts.YAxisOptions;
+  xAxis?: Highcharts.XAxisOptions;
+  plotOptions?: Highcharts.PlotOptions;
+  legend?: Highcharts.LegendOptions;
+}
 
-export default function SeriesChart({ sales }: { sales: ProductSale[] }) {
-  const series: SeriesData[] = sales.reduce(
-    (acc, curr) => {
-      const { wholesaleSales, retailSales, weekEnding } = curr;
-      const date = new Date(weekEnding + "T00:00:00Z");
-      const utcYear = date.getUTCFullYear();
-      const utcMonth = date.getUTCMonth();
-      const utcDate = date.getUTCDate();
-      const finalDate = Date.UTC(utcYear, utcMonth, utcDate);
-
-      acc[0].data.push([finalDate, wholesaleSales]);
-      acc[1].data.push([finalDate, retailSales]);
-
-      return acc;
-    },
-    [
-      {
-        name: "Wholesale Data",
-        type: "spline",
-        color: "#45a8f6",
-        data: [],
-      },
-      {
-        name: "Retail Data",
-        type: "spline",
-        color: "#9ba6bf",
-        data: [],
-      },
-    ] as SeriesData[]
-  );
-
+export default function SeriesChart({
+  series,
+  title,
+  subtitle,
+  yAxis,
+  xAxis,
+  plotOptions,
+  legend,
+}: SeriesChartProps) {
   const options = {
     title: {
-      text: "Monthly Sales Data, 2017",
+      ...title,
     },
     subtitle: {
-      text: "Source: Nutribullet",
+      ...subtitle,
     },
     yAxis: {
       title: {
         text: "Sales Amount",
       },
       gridLineWidth: 0,
+      ...yAxis,
     },
     xAxis: {
       type: "datetime",
@@ -63,11 +45,13 @@ export default function SeriesChart({ sales }: { sales: ProductSale[] }) {
       title: {
         text: "Date",
       },
+      ...xAxis,
     },
     legend: {
       layout: "vertical",
       align: "right",
       verticalAlign: "middle",
+      ...legend,
     },
     plotOptions: {
       series: {
@@ -79,6 +63,7 @@ export default function SeriesChart({ sales }: { sales: ProductSale[] }) {
           enabled: false,
         },
       },
+      ...plotOptions,
     },
     series,
     responsive: {

@@ -60,3 +60,10 @@ export type ProductActionTypes =
   | FetchProductsRequestAction
   | FetchProductsSuccessAction
   | FetchProductsFailureAction;
+
+export type SeriesData = {
+  name: string;
+  color: string;
+  type: string;
+  data: [number, number][];
+};
