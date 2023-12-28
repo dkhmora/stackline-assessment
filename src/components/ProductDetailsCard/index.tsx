@@ -1,3 +1,5 @@
+import Tag from "./Tag";
+
 type ProductDetailsCardProps = {
   image?: string;
   title?: string;
@@ -12,14 +14,24 @@ export default function ProductDetailsCard({
   tags,
 }: ProductDetailsCardProps) {
   return (
-    <div className="flex flex-1 flex-col items-center p-6 shadow-md bg-white rounded">
-      <img src={image} height={100} width={100} />
+    <div className="flex flex-1 flex-col items-center shadow-md bg-white rounded overflow-hidden">
+      <div className="flex flex-col items-center p-6">
+        <img
+          src={image}
+          alt={`${title}-product-image`}
+          className="min-w-24 max-w-[60%] h-auto"
+        />
 
-      <p className="text-2xl font-bold">{title}</p>
-      <p className="text-xl">{subtitle}</p>
+        <p className="text-2xl font-bold">{title}</p>
+        <p className="text-xl">{subtitle}</p>
+      </div>
 
-      <div className="flex">
-        {tags ? tags.map((tag) => <p className="text-xl">{tag}</p>) : null}
+      <div className="flex flex-wrap w-full p-6 justify-between">
+        {tags
+          ? tags.map((tagText, index) => (
+              <Tag text={tagText} key={`${tagText}${index}`} />
+            ))
+          : null}
       </div>
     </div>
   );
