@@ -9,7 +9,7 @@ interface ProductPageProps {
 
 export default function ProductPage({ product }: ProductPageProps) {
   return (
-    <div className="flex space-x-5 px-5 py-16">
+    <div className="flex space-x-5 px-5 py-16 animate-fadeIn ease-in-out duration-100">
       <section className="flex flex-grow w-1/5">
         <ProductDetailsCard
           image={product.image}
