@@ -19,7 +19,7 @@ function App() {
     <div>
       <header>
         <div className="flex h-20 w-full bg-[#052849] shadow-lg">
-          <img src={stacklineLogo} alt="logo" className="h-full p-6" />
+          <img src={stacklineLogo} alt="logo" className="h-full p-7" />
         </div>
       </header>
 
