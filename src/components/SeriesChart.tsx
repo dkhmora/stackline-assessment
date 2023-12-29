@@ -1,6 +1,7 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { SeriesData } from "../types";
+import "../highcharts.css";
 
 interface SeriesChartProps {
   series: SeriesData[];
@@ -22,6 +23,9 @@ export default function SeriesChart({
   legend,
 }: SeriesChartProps) {
   const options = {
+    chart: {
+      height: "500px",
+    },
     title: {
       ...title,
     },
@@ -29,21 +33,28 @@ export default function SeriesChart({
       ...subtitle,
     },
     yAxis: {
-      title: {
-        text: "Sales Amount",
-      },
       gridLineWidth: 0,
+      labels: {
+        style: {
+          color: "#aeb2c7",
+        },
+      },
       ...yAxis,
     },
     xAxis: {
       type: "datetime",
       dateTimeLabelFormats: {
         // don't display the dummy year
-        month: "%e. %b",
+        month: "%b",
         year: "%b",
       },
       title: {
         text: "Date",
+      },
+      labels: {
+        style: {
+          color: "#aeb2c7",
+        },
       },
       ...xAxis,
     },

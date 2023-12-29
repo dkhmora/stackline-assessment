@@ -29,13 +29,13 @@ export default function SalesChartCard({
     },
     [
       {
-        name: "Wholesale Data",
+        name: "Wholesale Sales",
         type: "spline",
         color: "#45a8f6",
         data: [],
       },
       {
-        name: "Retail Data",
+        name: "Retail Sales",
         type: "spline",
         color: "#9ba6bf",
         data: [],
@@ -44,8 +44,8 @@ export default function SalesChartCard({
   );
 
   return (
-    <div className="h-full w-full shadow-md bg-white py-4 px-8">
-      <h2 className="text-2xl font-light py-2 text-gray-700 text-left mb-6">
+    <div className="h-full w-full shadow-md bg-white py-2 px-6">
+      <h2 className="text-2xl text-gray-600 text-left mb-6 py-2">
         Retail Sales
       </h2>
 
@@ -54,6 +54,8 @@ export default function SalesChartCard({
         title={{ text: chartTitle }}
         subtitle={{ text: chartSubtitle }}
         legend={{ enabled: false }}
+        yAxis={{ title: { text: "" } }}
+        xAxis={{ title: { text: "" } }}
       />
     </div>
   );

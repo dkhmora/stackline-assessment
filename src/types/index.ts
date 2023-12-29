@@ -63,7 +63,7 @@ export type ProductActionTypes =
 
 export type SeriesData = {
   name: string;
-  color: string;
   type: string;
+  color: string;
   data: [number, number][];
 };

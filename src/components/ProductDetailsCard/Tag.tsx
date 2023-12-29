@@ -1,7 +1,7 @@
 export default function Tag({ text }: { text: string }) {
   return (
-    <div className="border rounded-lg mx-1 my-2 p-1 flex-auto">
-      <span className="text-lg">{text}</span>
+    <div className="border rounded-md mx-1 my-1.5 py-0.5 px-5">
+      <span className="text-md font-light">{text}</span>
     </div>
   );
 }
