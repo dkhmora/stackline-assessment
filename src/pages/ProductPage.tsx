@@ -2,6 +2,7 @@ import { Product } from "../types";
 import SalesChartCard from "../components/SalesChartCard";
 import SalesTableCard from "../components/SalesTableCard";
 import ProductDetailsCard from "../components/ProductDetailsCard";
+import ErrorMessage from "../components/ErrorMessage";
 
 interface ProductPageProps {
   product: Product;
@@ -9,6 +10,11 @@ interface ProductPageProps {
 }
 
 export default function ProductPage({ product, error }: ProductPageProps) {
+  // Error handling
+  if (error) {
+    return <ErrorMessage />;
+  }
+
   return (
     <div className="flex space-x-5 px-5 py-16">
       <section className="flex flex-grow w-1/5">
