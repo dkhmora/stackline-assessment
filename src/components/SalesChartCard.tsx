@@ -54,8 +54,18 @@ export default function SalesChartCard({
         title={{ text: chartTitle }}
         subtitle={{ text: chartSubtitle }}
         legend={{ enabled: false }}
-        yAxis={{ title: { text: "" } }}
-        xAxis={{ title: { text: "" } }}
+        yAxis={{
+          title: { text: "" },
+          accessibility: {
+            description: "Retail Sales",
+          },
+        }}
+        xAxis={{
+          title: { text: "" },
+          accessibility: {
+            description: "Months of the year",
+          },
+        }}
       />
     </div>
   );
