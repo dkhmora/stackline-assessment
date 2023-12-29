@@ -2,6 +2,8 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { SeriesData } from "../types";
 import "../highcharts.css";
+import accessibilityModule from "highcharts/modules/accessibility";
+accessibilityModule(Highcharts);
 
 interface SeriesChartProps {
   series: SeriesData[];
