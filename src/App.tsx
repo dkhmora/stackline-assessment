@@ -16,7 +16,7 @@ function App() {
   const firstProduct = products[0]; // Get first product for demonstration purposes
 
   return (
-    <div className="flex flex-1 flex-col w-screen">
+    <div>
       <header>
         <div className="flex h-20 w-full bg-[#052849] shadow-lg">
           <img src={stacklineLogo} alt="logo" className="h-full p-6" />

@@ -19,7 +19,7 @@ export default function ProductPage({ product }: ProductPageProps) {
         />
       </section>
 
-      <section className="flex flex-col w-4/5 space-y-16 rounded">
+      <section className="flex flex-col w-4/5 space-y-16">
         <SalesChartCard sales={product.sales} />
 
         <SalesTableCard sales={product.sales} />
