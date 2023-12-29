@@ -3,6 +3,7 @@ import "./App.css";
 import stacklineLogo from "./assets/stackline_logo.svg";
 import SliderLoader from "./components/SliderLoader";
 import useFetchProducts from "./hooks/useFetchProducts";
+import ErrorMessage from "./components/ErrorMessage";
 
 const ProductPage = lazy(() => import("./pages/ProductPage"));
 
@@ -19,11 +20,15 @@ function App() {
       </header>
 
       <main>
-        <Suspense fallback={<SliderLoader />}>
-          {!loading ? (
-            <ProductPage product={firstProduct} error={error} />
-          ) : null}
-        </Suspense>
+        {/* Error handling */}
+        {error ? (
+          <ErrorMessage />
+        ) : (
+          <Suspense fallback={<SliderLoader />}>
+            {/* Suspense for lazy loading */}
+            {!loading ? <ProductPage product={firstProduct} /> : null}
+          </Suspense>
+        )}
       </main>
     </div>
   );
