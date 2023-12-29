@@ -29,12 +29,11 @@
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #b0b0b0;
-  border: solid 0px #e6e6e6;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(82, 82, 82);
+  background: rgb(126, 126, 126);
 }
 
 @tailwind base;
