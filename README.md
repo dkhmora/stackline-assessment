@@ -1,30 +1,26 @@
-# React + TypeScript + Vite
+# Stackline Frontend Assessment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+View finished assessment deployed on GitHub Pages: [dkhmora/stackline-assessment](https://dkhmora.github.io/stackline-assessment/)
 
-Currently, two official plugins are available:
+Packages used:
+- [Vite](https://github.com/vitejs/vite)
+- [React](https://github.com/facebook/react)
+- [React Redux](https://github.com/reduxjs/react-redux)
+- [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss)
+- [Highcharts](https://github.com/highcharts/highcharts)
+- [Material React Table](https://github.com/KevinVandy/material-react-table)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Requirements
+<u>Resources to get started (attached via email):</u>
+1. A JSON file to be used as the data source to populate the web page
+2. A wire mockup of what your final web page should look like
 
-## Expanding the ESLint configuration
+<u>We are looking for:</u>
+1. A solution that resembles the provided mock up closely and implements AT LEAST ONE of either the graph or chart as seen in the mock up
+2. A working solution that takes the provided JSON file as output from a stubbed-out API call
+3. A solution that implements React and Redux best practices and patterns. TS is encouraged.
+4. Clean code
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+<u>Assets to be returned via email within the provided time frame:</u>
+1. A public repository to view the final code (deploy it to github pages or AWS and share that link with us)
+2. A public URL to view the web page (a link to the public github repository)
