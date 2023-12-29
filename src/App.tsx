@@ -3,6 +3,7 @@ import stacklineLogo from "./assets/stackline_logo.svg";
 import ProductDetailsCard from "./components/ProductDetailsCard";
 import SalesChartCard from "./components/SalesChartCard";
 import SalesTableCard from "./components/SalesTableCard";
+import SliderLoader from "./components/SliderLoader";
 import useFetchProducts from "./hooks/useFetchProducts";
 
 function App() {
@@ -11,8 +12,12 @@ function App() {
 
   return (
     <div className="flex flex-1 flex-col w-screen">
-      <header className="flex h-20 w-full bg-[#052849] shadow-lg">
-        <img src={stacklineLogo} alt="logo" className="h-full p-6" />
+      <header>
+        <div className="flex h-20 w-full bg-[#052849] shadow-lg">
+          <img src={stacklineLogo} alt="logo" className="h-full p-6" />
+        </div>
+
+        {loading ? <SliderLoader /> : null}
       </header>
 
       <main className="flex space-x-5 px-5 py-16">
