@@ -9,7 +9,7 @@ const ProductPage = lazy(() => import("./pages/ProductPage"));
 
 function App() {
   const { loading, products, error } = useFetchProducts();
-  const firstProduct = products[0];
+  const firstProduct = products[0]; // Get first product for demonstration purposes
 
   return (
     <div className="flex flex-1 flex-col w-screen">
@@ -22,7 +22,7 @@ function App() {
       <main>
         {/* Error handling */}
         {error ? (
-          <ErrorMessage />
+          <ErrorMessage errorMessage={error} />
         ) : (
           <Suspense fallback={<SliderLoader />}>
             {/* Suspense for lazy loading */}
