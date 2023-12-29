@@ -8,37 +8,31 @@ import {
 import { RootState, ProductsState } from "../types";
 import { useSelector } from "react-redux";
 
-const STACKLINE_SAMPLE_PRODUCTS_DATA_PATH =
-  "/stackline_frontend_assessment_data_2021.json";
-
-const useFetchProducts = () => {
+const useFetchProducts = (url: string) => {
   const { loading, products, error }: ProductsState = useSelector(
     (state: RootState) => state.data
   );
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("fetching data");
-    const fetchData = async () => {
-      dispatch(fetchProductsRequest());
-      try {
-        const response = await fetch(STACKLINE_SAMPLE_PRODUCTS_DATA_PATH);
-        if (!response.ok) {
-          throw new Error("HTTP error " + response.status);
-        }
-        const data = await response.json();
-        console.log(data);
-        dispatch(fetchProductsSuccess(data));
-      } catch (error) {
-        console.error(error);
-        dispatch(fetchProductsFailure((error as Error).message));
-      }
-    };
+    if (!loading) {
+      dispatch(fetchProductsRequest()); // dispatching request action
 
-    fetchData();
-  }, [dispatch]);
+      fetch(url)
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("HTTP error " + res.status); // handle HTTP error
+          }
 
-  console.log(loading, products, error);
+          return res.json();
+        })
+        .then((data) => dispatch(fetchProductsSuccess(data))) // dispatching success action
+        .catch((error) => {
+          console.error(error);
+          dispatch(fetchProductsFailure((error as Error).message)); // dispatching failure action
+        });
+    }
+  }, [dispatch, url]);
 
   return { loading, products, error };
 };

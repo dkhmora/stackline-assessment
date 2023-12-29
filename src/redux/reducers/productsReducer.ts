@@ -7,7 +7,7 @@ import {
 } from "../../types";
 
 const initialState: ProductsState = {
-  loading: true,
+  loading: false,
   products: [],
   error: "",
 };
