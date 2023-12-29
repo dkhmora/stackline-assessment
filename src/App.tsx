@@ -7,7 +7,7 @@ import ErrorMessage from "./components/ErrorMessage";
 
 const ProductPage = lazy(() => import("./pages/ProductPage"));
 const STACKLINE_SAMPLE_PRODUCTS_DATA_PATH =
-  "/stackline_frontend_assessment_data_2021.json";
+  "stackline_frontend_assessment_data_2021.json";
 
 function App() {
   const { loading, products, error } = useFetchProducts(
