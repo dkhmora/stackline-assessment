@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function SliderLoader() {
   return (
     <div className="relative w-full bg-gray-300 h-1.5 overflow-hidden">
