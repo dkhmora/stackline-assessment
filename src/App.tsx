@@ -1,8 +1,10 @@
+import { Suspense, lazy } from "react";
 import "./App.css";
 import stacklineLogo from "./assets/stackline_logo.svg";
 import SliderLoader from "./components/SliderLoader";
 import useFetchProducts from "./hooks/useFetchProducts";
-import ProductPage from "./pages/ProductPage";
+
+const ProductPage = lazy(() => import("./pages/ProductPage"));
 
 function App() {
   const { loading, products, error } = useFetchProducts();
@@ -14,12 +16,14 @@ function App() {
         <div className="flex h-20 w-full bg-[#052849] shadow-lg">
           <img src={stacklineLogo} alt="logo" className="h-full p-6" />
         </div>
-
-        {loading ? <SliderLoader /> : null}
       </header>
 
       <main>
-        {!loading ? <ProductPage product={firstProduct} error={error} /> : null}
+        <Suspense fallback={<SliderLoader />}>
+          {!loading ? (
+            <ProductPage product={firstProduct} error={error} />
+          ) : null}
+        </Suspense>
       </main>
     </div>
   );
