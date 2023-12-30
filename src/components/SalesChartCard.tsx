@@ -66,6 +66,15 @@ export default function SalesChartCard({
             description: "Months of the year",
           },
         }}
+        additionalChartProps={{
+          tooltip: {
+            valuePrefix: "$",
+          },
+          chart: {
+            numberFormatter: (number) => number.toLocaleString(),
+            type: "column",
+          },
+        }}
       />
     </div>
   );

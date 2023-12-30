@@ -8,7 +8,7 @@ import {
   KeyboardArrowDown as KeyboardArrowDownIcon,
   UnfoldMore as UnfoldMoreIcon,
 } from "@mui/icons-material";
-import { SvgIconOwnProps } from "@mui/material";
+import { SvgIconOwnProps, ThemeProvider, createTheme } from "@mui/material";
 
 export default function DataTable({
   columns,
@@ -38,5 +38,23 @@ export default function DataTable({
     },
   });
 
-  return <MaterialReactTable table={table} />;
+  return (
+    <ThemeProvider
+      theme={createTheme({
+        palette: {
+          text: {
+            primary: "#111111",
+          },
+        },
+        typography: {
+          fontWeightBold: 100,
+          fontWeightRegular: 100,
+          fontWeightLight: 100,
+          fontWeightMedium: 100,
+        },
+      })}
+    >
+      <MaterialReactTable table={table} />
+    </ThemeProvider>
+  );
 }

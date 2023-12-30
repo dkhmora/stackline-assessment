@@ -8,28 +8,63 @@ export default function SalesTableCard({ sales }: { sales: ProductSale[] }) {
     () => [
       {
         accessorKey: "weekEnding",
-        header: "Week Ending",
-        size: 150,
+        header: "WEEK ENDING",
+        size: 50,
+        Cell: ({ cell }) => (
+          <div style={{ color: "#777777" }}>{cell.getValue() as string}</div>
+        ),
       },
       {
         accessorKey: "retailSales",
-        header: "Retail Sales",
-        size: 150,
+        header: "RETAIL SALES",
+        size: 100,
+        muiTableHeadCellProps: {
+          align: "right",
+        },
+        Cell: ({ cell }) => (
+          <div style={{ textAlign: "right", color: "#777777" }}>{`$${(
+            cell.getValue() as number
+          ).toLocaleString()}`}</div>
+        ),
       },
       {
         accessorKey: "wholesaleSales",
-        header: "Wholesale Sales",
-        size: 200,
+        header: "WHOLESALE SALES",
+        size: 100,
+        muiTableHeadCellProps: {
+          align: "right",
+        },
+        Cell: ({ cell }) => (
+          <div style={{ textAlign: "right", color: "#777777" }}>{`$${(
+            cell.getValue() as number
+          ).toLocaleString()}`}</div>
+        ),
       },
       {
         accessorKey: "unitsSold",
-        header: "Units Sold",
-        size: 150,
+        header: "UNITS SOLD",
+        size: 100,
+        muiTableHeadCellProps: {
+          align: "right",
+        },
+        Cell: ({ cell }) => (
+          <div style={{ textAlign: "right", color: "#777777" }}>{`${(
+            cell.getValue() as number
+          ).toLocaleString()}`}</div>
+        ),
       },
       {
         accessorKey: "retailerMargin",
-        header: "Retailer Margin",
-        size: 150,
+        header: "RETAILER MARGIN",
+        size: 100,
+        muiTableHeadCellProps: {
+          align: "right",
+        },
+        Cell: ({ cell }) => (
+          <div style={{ textAlign: "right", color: "#777777" }}>{`$${(
+            cell.getValue() as number
+          ).toLocaleString()}`}</div>
+        ),
       },
     ],
     []
