@@ -13,6 +13,7 @@ interface SeriesChartProps {
   xAxis?: Highcharts.XAxisOptions;
   plotOptions?: Highcharts.PlotOptions;
   legend?: Highcharts.LegendOptions;
+  additionalChartProps?: Highcharts.Options;
 }
 
 export default function SeriesChart({
@@ -23,6 +24,7 @@ export default function SeriesChart({
   xAxis,
   plotOptions,
   legend,
+  additionalChartProps,
 }: SeriesChartProps) {
   const options = {
     chart: {
@@ -95,6 +97,7 @@ export default function SeriesChart({
         },
       ],
     },
+    ...additionalChartProps,
   };
 
   return <HighchartsReact highcharts={Highcharts} options={options} />;
